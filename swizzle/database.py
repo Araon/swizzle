@@ -1,6 +1,5 @@
 import sqlite3
 import logging
-import json
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
