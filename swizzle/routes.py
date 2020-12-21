@@ -1,6 +1,6 @@
-from flask import Flask, render_template, url_for, request
-from database import insert_data
-app = Flask(__name__)
+from flask import render_template, url_for, request
+from swizzle import app
+from swizzle.database import insert_data
 
 
 @app.route("/")
@@ -32,10 +32,3 @@ def register():
 @app.route("/play")
 def play():
     return render_template('gamepage.html')
-
-    
-if __name__ == "__main__":
-    app.run(debug=True)
-
-
-
