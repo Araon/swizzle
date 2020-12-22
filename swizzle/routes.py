@@ -32,3 +32,8 @@ def register():
 @app.route("/play")
 def play():
     return render_template('gamepage.html')
+
+
+@app.route("/error")
+def error():
+    return render_template('errorpage.html')
