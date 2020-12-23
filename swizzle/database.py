@@ -1,3 +1,9 @@
+'''
+Temporary Database management system
+todo: to be replaced by models.py and db system to be used to mysql
+'''
+
+
 import sqlite3
 import logging
 logging.basicConfig(level=logging.INFO)

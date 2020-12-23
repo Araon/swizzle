@@ -1,6 +1,6 @@
-from flask import render_template, url_for, request
+from flask import render_template, flash, url_for, request,redirect
 from swizzle import app
-from swizzle.database import insert_data
+from swizzle.forms import RegistrationForm, LoginForm
 
 
 @app.route("/")
@@ -9,25 +9,19 @@ def index():
 
 @app.route("/login", methods=["POST","GET"])
 def login():
-    if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["pwd"]
+    form = LoginForm()
+    return render_template('login.html', form=form)
 
-    else:
-        return render_template('login.html')
 
 @app.route("/register", methods=["POST", "GET"])
 def register():
-    if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["pwd"]
-        email = request.form["email"]
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f'Account Created for {form.username.data}!', 'success')
+        return redirect(url_for('login'))
+    return render_template('register.html', form=form)
 
-        insert_data(username,password,email)
-        return "<a href='/'>Back</a>"
-    else:
-        return render_template('register.html')
-    
+
 
 @app.route("/play")
 def play():
