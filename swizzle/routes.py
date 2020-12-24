@@ -3,6 +3,10 @@ from swizzle import app
 from swizzle.forms import RegistrationForm, LoginForm
 
 
+'''
+Route file config
+'''
+
 @app.route("/")
 def index():
     return render_template('home.html')
