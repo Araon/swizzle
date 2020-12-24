@@ -7,7 +7,7 @@ Each table is represented as a class and their respective columns are represente
 
 class User(db.Model):
     '''
-    The usaual data required for a simple login/registration
+    The usual data required for a simple login/registration
 
     '''
     user_id = db.Column(db.Integer, primary_key=True)
